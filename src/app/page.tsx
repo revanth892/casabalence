@@ -1,33 +1,33 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Services from "@/components/Services";
+import Solutions from "@/components/Solutions";
+import Products from "@/components/Products";
+import Packages from "@/components/Packages";
+import Testimonials from "@/components/Testimonials";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
+import StickyEnquiry from "@/components/StickyEnquiry";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle className="text-2xl font-bold text-center text-primary">Casabalence</CardTitle>
-          <CardDescription className="text-center">
-            Next.js + Tailwind CSS + shadcn/ui configured correctly.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-2">
-            <label htmlFor="demo" className="text-sm font-medium">
-              Demo Input
-            </label>
-            <Input id="demo" placeholder="Enter something..." />
-          </div>
-          <p className="text-sm text-muted-foreground text-center">
-            This project is ready for development with Tailwind v4 and shadcn.
-          </p>
-        </CardContent>
-        <CardFooter className="flex justify-center gap-2">
-          <Button variant="outline">Learn More</Button>
-          <Button>Get Started</Button>
-        </CardFooter>
-      </Card>
+    <div className="flex flex-col min-h-screen relative">
+      <Header />
+      <div className="pt-20">
+        <Hero />
+        <About />
+        <Services />
+        <Solutions />
+        <Products />
+        <Packages />
+        <Testimonials />
+        <Contact />
+        <Footer />
+      </div>
+      
+      {/* Floating Elements */}
+      <StickyEnquiry />
     </div>
-  )
+  );
 }
