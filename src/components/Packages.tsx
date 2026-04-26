@@ -163,15 +163,15 @@ export default function Packages() {
   const currentPackages = pricingData[activeBhk];
 
   return (
-    <section className="h-screen flex flex-col justify-center px-6 lg:px-16 w-full mx-auto bg-white overflow-hidden">
-      {/* BHK Tabs - More Compact */}
+    <section id="packages" className="min-h-screen flex flex-col justify-center px-6 lg:px-16 w-full mx-auto bg-white py-24">
+      {/* BHK Tabs */}
       <div className="flex justify-center mb-8">
-        <div className="bg-[#F3F4F6] p-1 rounded-xl flex items-center">
+        <div className="bg-[#F3F4F6] p-1 rounded-xl flex flex-wrap items-center justify-center">
           {bhkOptions.map((option) => (
             <button
               key={option}
               onClick={() => setActiveBhk(option)}
-              className={`px-8 py-2 rounded-lg text-xs font-semibold transition-all duration-300 ${
+              className={`px-6 sm:px-8 py-2 rounded-lg text-xs font-semibold transition-all duration-300 ${
                 activeBhk === option
                   ? "bg-[#78D1E1] text-white shadow-sm"
                   : "text-[#666] hover:text-black"
@@ -183,14 +183,14 @@ export default function Packages() {
         </div>
       </div>
 
-      {/* Package Cards Grid - Scaled Down */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch h-[65vh] max-w-[1400px] mx-auto">
+      {/* Package Cards Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch h-auto max-w-[1400px] mx-auto">
         {currentPackages.map((pkg) => (
           <div
             key={pkg.name}
             className={`relative flex flex-col p-8 rounded-[2rem] border transition-all duration-500 ${
               pkg.highlight 
-                ? "bg-[#C1EAF1] border-transparent shadow-xl scale-102 z-10" 
+                ? "bg-[#C1EAF1] border-transparent shadow-xl lg:scale-102 z-10" 
                 : "bg-white border-[#E5E7EB] hover:border-[#78D1E1] hover:shadow-md"
             }`}
           >
@@ -210,7 +210,7 @@ export default function Packages() {
               </p>
             </div>
 
-            <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar">
+            <div className="flex-1">
               <h4 className="text-[10px] font-bold text-black mb-4 uppercase tracking-wider">Features</h4>
               <ul className="space-y-3">
                 {pkg.features.map((feature: string, i: number) => (

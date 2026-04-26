@@ -99,15 +99,15 @@ export default function Products() {
   const currentProducts = productData[activeCategory as keyof typeof productData] || [];
 
   return (
-    <section id="products" className="min-h-screen w-full bg-white flex flex-col py-32 px-6 lg:px-16">
+    <section id="products" className="min-h-screen w-full bg-white flex flex-col py-24 px-6 lg:px-16">
       <div className="max-w-[1400px] mx-auto w-full">
-        {/* Category Tabs */}
-        <div className="flex flex-wrap gap-3 mb-16">
+        {/* Category Tabs - Scrollable on mobile */}
+        <div className="flex flex-nowrap lg:flex-wrap gap-3 mb-16 overflow-x-auto pb-4 lg:pb-0 no-scrollbar">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap ${
                 activeCategory === cat
                   ? "bg-black text-white shadow-lg"
                   : "bg-[#F3F3F3] text-[#666] hover:bg-gray-200"
@@ -130,14 +130,14 @@ export default function Products() {
           {currentProducts.map((product, index) => (
             <div 
               key={index}
-              className="bg-[#F8F9FA] rounded-[3rem] p-10 flex flex-col items-center shadow-none border-none transition-all duration-500 group min-h-[500px]"
+              className="bg-[#F8F9FA] rounded-[3rem] p-8 sm:p-10 flex flex-col items-center shadow-none border-none transition-all duration-500 group min-h-[450px] sm:min-h-[500px]"
             >
               {/* Text Content */}
               <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-black mb-3 font-heading tracking-tight leading-tight px-4">
+                <h3 className="text-xl sm:text-2xl font-bold text-black mb-3 font-heading tracking-tight leading-tight px-4">
                   {product.title}
                 </h3>
-                <p className="text-lg text-[#333] mb-8 font-medium">
+                <p className="text-base sm:text-lg text-[#333] mb-8 font-medium">
                   {product.subtitle}
                 </p>
                 
@@ -149,8 +149,8 @@ export default function Products() {
                 </div>
               </div>
 
-              {/* Product Image Area - Shadow and Border removed as requested */}
-              <div className="mt-auto relative w-full aspect-square max-w-[260px] mx-auto">
+              {/* Product Image Area */}
+              <div className="mt-auto relative w-full aspect-square max-w-[200px] sm:max-w-[260px] mx-auto">
                 <Image
                   src={product.image}
                   alt={product.title}

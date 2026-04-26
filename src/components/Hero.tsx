@@ -74,48 +74,48 @@ export default function Hero() {
               className="object-cover object-center"
             />
             {/* Darker overlay for better text legibility */}
-            <div className="absolute inset-0 bg-black/30" />
+            <div className="absolute inset-0 bg-black/40" />
           </div>
           
           {/* Content Overlay */}
-          <div className="absolute inset-0 flex flex-col items-center justify-start pt-24 text-center z-20">
-            <h2 className={`text-4xl md:text-5xl font-semibold tracking-[0.1em] text-white uppercase font-heading mb-4 transition-all duration-1000 delay-300 ${
+          <div className="absolute inset-0 flex flex-col items-center justify-center pt-20 px-6 text-center z-20">
+            <h2 className={`text-4xl sm:text-5xl md:text-6xl font-semibold tracking-[0.1em] text-white uppercase font-heading mb-6 transition-all duration-1000 delay-300 ${
               index === current ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}>
               {slide.title}
             </h2>
-            <div className={`space-y-1 transition-all duration-1000 delay-500 ${
+            <div className={`space-y-2 transition-all duration-1000 delay-500 ${
               index === current ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}>
-              <p className="text-sm md:text-base font-medium text-white/90 tracking-wide">
+              <p className="text-base sm:text-lg md:text-xl font-medium text-white/90 tracking-wide">
                 {slide.subtitle}
               </p>
-              <p className="text-sm md:text-base font-medium text-white/90 tracking-wide">
+              <p className="text-base sm:text-lg md:text-xl font-medium text-white/90 tracking-wide">
                 {slide.subtext}
               </p>
             </div>
             
             {/* Action Button */}
-            <button className={`mt-8 group relative flex items-center justify-center w-12 h-12 bg-[#007AFF] rounded-full text-white shadow-lg hover:scale-110 transition-all duration-500 delay-700 ${
+            <button className={`mt-10 group relative flex items-center justify-center w-14 h-14 bg-[#007AFF] rounded-full text-white shadow-lg hover:scale-110 transition-all duration-500 delay-700 ${
               index === current ? "scale-100 opacity-100" : "scale-50 opacity-0"
             }`}>
-              <ArrowRight className="h-5 w-5" />
+              <ArrowRight className="h-6 w-6" />
             </button>
           </div>
         </div>
       ))}
 
       {/* Navigation Arrows */}
-      <div className="absolute inset-0 flex items-center justify-between px-6 lg:px-12 z-30 pointer-events-none">
+      <div className="absolute inset-0 flex items-center justify-between px-4 sm:px-6 lg:px-12 z-30 pointer-events-none">
         <button 
           onClick={prevSlide}
-          className="pointer-events-auto p-3 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-white/30 transition-colors border border-white/20"
+          className="pointer-events-auto p-2 sm:p-3 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-white/30 transition-colors border border-white/20"
         >
           <ChevronLeft className="h-6 w-6" />
         </button>
         <button 
           onClick={nextSlide}
-          className="pointer-events-auto p-3 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-white/30 transition-colors border border-white/20"
+          className="pointer-events-auto p-2 sm:p-3 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-white/30 transition-colors border border-white/20"
         >
           <ChevronRight className="h-6 w-6" />
         </button>
@@ -128,7 +128,7 @@ export default function Hero() {
             key={index}
             onClick={() => setCurrent(index)}
             className={`h-[3px] transition-all duration-500 rounded-full ${
-              index === current ? "w-8 bg-[#007AFF]" : "w-4 bg-white/40 hover:bg-white/60"
+              index === current ? "w-8 sm:w-10 bg-[#007AFF]" : "w-4 sm:w-5 bg-white/40 hover:bg-white/60"
             }`}
           />
         ))}

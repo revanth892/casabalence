@@ -3,10 +3,10 @@ import { ArrowRight } from "lucide-react";
 
 export default function Solutions() {
   return (
-    <section className="h-screen flex flex-col justify-center px-6 lg:px-16 w-full mx-auto bg-white overflow-hidden">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 h-[38%]">
+    <section id="solutions" className="min-h-screen flex flex-col justify-center px-6 lg:px-16 w-full mx-auto bg-white py-24">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 h-auto lg:h-[38%]">
         {/* Top Left: Wall Panel Card */}
-        <div className="relative group overflow-hidden rounded-[2.5rem] bg-white border border-[#F0F0F0]">
+        <div className="relative group overflow-hidden rounded-[2.5rem] bg-white border border-[#F0F0F0] min-h-[300px] md:min-h-0">
           <Image
             src="/hero2.png"
             alt="Smart Wall Panel"
@@ -25,7 +25,7 @@ export default function Solutions() {
         </div>
 
         {/* Top Right: Architectural Card */}
-        <div className="relative group overflow-hidden rounded-[2.5rem] bg-white border border-[#F0F0F0]">
+        <div className="relative group overflow-hidden rounded-[2.5rem] bg-white border border-[#F0F0F0] min-h-[300px] md:min-h-0">
           <Image
             src="/building.png"
             alt="Smart Architecture"
@@ -44,9 +44,9 @@ export default function Solutions() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-[45%]">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto lg:h-[45%]">
         {/* Office Card */}
-        <div className="bg-[#F8F9FA] rounded-[2.5rem] overflow-hidden flex flex-col group">
+        <div className="bg-[#F8F9FA] rounded-[2.5rem] overflow-hidden flex flex-col group min-h-[350px] md:min-h-0">
           <div className="p-8 pb-4 text-center">
             <h3 className="text-2xl font-bold text-black mb-0 font-heading tracking-tight">Office</h3>
           </div>
@@ -61,7 +61,7 @@ export default function Solutions() {
         </div>
 
         {/* Elderly Care Card */}
-        <div className="bg-[#F8F9FA] rounded-[2.5rem] overflow-hidden flex flex-col group">
+        <div className="bg-[#F8F9FA] rounded-[2.5rem] overflow-hidden flex flex-col group min-h-[350px] md:min-h-0">
           <div className="p-8 pb-4 text-center">
             <h3 className="text-2xl font-bold text-black mb-0 font-heading tracking-tight">Elderly Care</h3>
           </div>
@@ -76,7 +76,7 @@ export default function Solutions() {
         </div>
 
         {/* Gaming Room Card */}
-        <div className="bg-[#F8F9FA] rounded-[2.5rem] overflow-hidden flex flex-col group">
+        <div className="bg-[#F8F9FA] rounded-[2.5rem] overflow-hidden flex flex-col group min-h-[350px] md:min-h-0">
           <div className="p-8 pb-4 text-center">
             <h3 className="text-2xl font-bold text-black mb-0 font-heading tracking-tight">Gaming Room</h3>
           </div>

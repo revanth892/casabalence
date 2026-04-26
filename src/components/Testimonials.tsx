@@ -76,9 +76,9 @@ export default function Testimonials() {
   const current = testimonials[currentIndex];
 
   return (
-    <section className="h-screen w-full bg-white flex flex-col justify-center px-6 lg:px-24 relative overflow-hidden">
+    <section id="testimonials" className="min-h-screen w-full bg-white flex flex-col justify-center px-6 lg:px-24 py-24 relative overflow-hidden">
       <div className="max-w-5xl mx-auto w-full relative">
-        {/* Side Navigation Buttons - Moved Closer & Color Themed */}
+        {/* Side Navigation Buttons - Hidden on smaller screens */}
         <button 
           onClick={prev}
           className="absolute -left-16 top-1/2 -translate-y-1/2 w-10 h-10 bg-[#F3F4F6] hover:bg-[#78D1E1] hover:text-white rounded-full flex items-center justify-center text-gray-400 z-20 transition-all duration-300 hidden xl:flex"
@@ -94,15 +94,15 @@ export default function Testimonials() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Large Number */}
-          <div className="lg:col-span-4">
-            <span className="text-[8rem] lg:text-[10rem] font-bold text-[#F3F4F6] leading-none select-none font-heading transition-all duration-700">
+          <div className="lg:col-span-4 flex justify-center lg:justify-start">
+            <span className="text-[6rem] sm:text-[8rem] lg:text-[10rem] font-bold text-[#F3F4F6] leading-none select-none font-heading transition-all duration-700">
               {current.id}
             </span>
           </div>
 
           {/* Quote Content */}
-          <div className="lg:col-span-8 flex flex-col gap-6">
-            <p className="text-xl lg:text-2xl font-medium text-black leading-snug max-w-lg transition-all duration-500">
+          <div className="lg:col-span-8 flex flex-col gap-6 text-center lg:text-left items-center lg:items-start">
+            <p className="text-lg sm:text-xl lg:text-2xl font-medium text-black leading-snug max-w-lg transition-all duration-500">
               "{current.quote}"
             </p>
 
@@ -115,7 +115,7 @@ export default function Testimonials() {
                   className="object-cover"
                 />
               </div>
-              <div>
+              <div className="text-left">
                 <h4 className="text-base font-bold text-black font-heading">{current.author}</h4>
                 <p className="text-[#78D1E1] text-[10px] uppercase tracking-wider font-semibold">{current.role}</p>
               </div>
@@ -124,32 +124,32 @@ export default function Testimonials() {
         </div>
       </div>
 
-      {/* Bottom Controls - Color Themed */}
-      <div className="absolute bottom-12 left-6 lg:left-32 right-6 lg:right-32 flex justify-between items-center">
+      {/* Bottom Controls */}
+      <div className="mt-12 sm:mt-24 w-full max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-8">
         {/* Progress Display */}
-        <div className="flex items-center gap-8">
-          <div className="flex gap-1.5">
+        <div className="flex items-center gap-8 order-2 sm:order-1">
+          <div className="flex gap-1.5 flex-wrap justify-center">
             {testimonials.map((_, i) => (
               <div 
                 key={i}
                 className={`h-0.5 transition-all duration-500 ${
-                  i === currentIndex ? "w-10 bg-[#78D1E1]" : "w-5 bg-gray-100"
+                  i === currentIndex ? "w-8 sm:w-10 bg-[#78D1E1]" : "w-4 sm:w-5 bg-gray-100"
                 }`}
               />
             ))}
           </div>
-          <span className="text-gray-300 font-medium tracking-widest text-[10px]">
+          <span className="text-gray-300 font-medium tracking-widest text-[10px] whitespace-nowrap">
             {current.id} / 0{testimonials.length}
           </span>
         </div>
 
         {/* Small Navigation Arrows */}
-        <div className="flex gap-6">
-          <button onClick={prev} className="text-gray-300 hover:text-[#78D1E1] transition-colors">
-            <ChevronLeft className="h-5 w-5" />
+        <div className="flex gap-6 order-1 sm:order-2">
+          <button onClick={prev} className="text-gray-300 hover:text-[#78D1E1] transition-colors p-2">
+            <ChevronLeft className="h-6 w-6" />
           </button>
-          <button onClick={next} className="text-gray-300 hover:text-[#78D1E1] transition-colors">
-            <ChevronRight className="h-5 w-5" />
+          <button onClick={next} className="text-gray-300 hover:text-[#78D1E1] transition-colors p-2">
+            <ChevronRight className="h-6 w-6" />
           </button>
         </div>
       </div>

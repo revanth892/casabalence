@@ -3,10 +3,10 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function About() {
   return (
-    <section className="h-screen flex flex-col justify-center px-6 lg:px-16 w-full mx-auto bg-white overflow-hidden">
+    <section id="about" className="min-h-screen flex flex-col justify-center px-6 lg:px-16 w-full mx-auto bg-white py-24">
       <div className="w-full">
-        {/* Header Area - More Compact */}
-        <div className="flex flex-col lg:flex-row justify-between items-end gap-6 mb-10">
+        {/* Header Area */}
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mb-10">
           <div className="max-w-2xl">
             <span className="text-[#00A3FF] font-bold text-xs tracking-[0.2em] uppercase mb-2 block font-heading">
               ABOUT US
@@ -26,10 +26,10 @@ export default function About() {
           </div>
         </div>
 
-        {/* Grid Content - Scaled Down */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 h-[50vh]">
+        {/* Grid Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 h-auto lg:h-[50vh]">
           {/* Left Visual: Phone Mockups */}
-          <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2rem] overflow-hidden flex items-center justify-center p-6 lg:p-8">
+          <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2rem] overflow-hidden flex items-center justify-center p-6 lg:p-8 min-h-[300px] lg:min-h-0">
             <div className="relative w-full h-full max-w-xl aspect-[4/3]">
               <Image
                 src="/app-mockup.png"
@@ -43,7 +43,7 @@ export default function About() {
           {/* Right Info Cards */}
           <div className="lg:col-span-5 flex flex-col gap-5">
             {/* Security Card */}
-            <div className="bg-[#F8F9FA] rounded-[2rem] p-8 flex-1 relative group flex flex-col justify-center">
+            <div className="bg-[#F8F9FA] rounded-[2rem] p-8 flex-1 relative group flex flex-col justify-center min-h-[200px] lg:min-h-0">
               <div className="max-w-xs">
                 <h3 className="text-2xl font-bold text-black mb-4 font-heading">
                   24/7 Security
@@ -60,9 +60,9 @@ export default function About() {
             </div>
 
             {/* Bottom Small Cards Grid */}
-            <div className="grid grid-cols-2 gap-5 h-40">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 h-auto lg:h-40">
               {/* Camera Card */}
-              <div className="bg-[#F8F9FA] rounded-[2rem] p-4 flex items-center justify-center overflow-hidden">
+              <div className="bg-[#F8F9FA] rounded-[2rem] p-4 flex items-center justify-center overflow-hidden min-h-[120px] lg:min-h-0">
                 <div className="relative w-20 h-20">
                   <Image
                     src="/camera.png"
@@ -74,7 +74,7 @@ export default function About() {
               </div>
 
               {/* Power Usage Card */}
-              <div className="bg-[#C1EAF1] rounded-[2rem] p-6 flex flex-col justify-center gap-3">
+              <div className="bg-[#C1EAF1] rounded-[2rem] p-6 flex flex-col justify-center gap-3 min-h-[120px] lg:min-h-0">
                 <div className="relative w-full h-1.5 bg-white/30 rounded-full overflow-hidden">
                   <div className="absolute top-0 left-0 h-full w-[60%] bg-[#5EA5C5] rounded-full" />
                 </div>

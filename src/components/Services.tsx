@@ -27,10 +27,10 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="h-screen w-full bg-white flex flex-col justify-center px-6 lg:px-16 overflow-hidden">
+    <section id="services" className="min-h-screen w-full bg-white flex flex-col justify-center px-6 lg:px-16 py-24">
       <div className="max-w-[1400px] mx-auto w-full">
         {/* Heading Line with View All */}
-        <div className="flex justify-between items-end mb-12">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-6">
           <div>
             <span className="text-[#007AFF] font-bold text-xs tracking-[0.2em] uppercase mb-2 block font-heading">
               SERVICES
