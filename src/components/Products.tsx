@@ -99,18 +99,18 @@ export default function Products() {
   const currentProducts = productData[activeCategory as keyof typeof productData] || [];
 
   return (
-    <section id="products" className="min-h-screen w-full bg-white flex flex-col py-24 px-6 lg:px-16">
+    <section id="products" className="min-h-screen w-full bg-[#F9F9F9] flex flex-col py-24 px-6 lg:px-16">
       <div className="max-w-[1400px] mx-auto w-full">
-        {/* Category Tabs - Scrollable on mobile */}
-        <div className="flex flex-nowrap lg:flex-wrap gap-3 mb-16 overflow-x-auto pb-4 lg:pb-0 no-scrollbar">
+        {/* Category Tabs - Wraps on mobile per screenshot */}
+        <div className="flex flex-wrap gap-2 sm:gap-3 mb-16">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap ${
+              className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl sm:rounded-full text-sm sm:text-base font-medium transition-all duration-300 ${
                 activeCategory === cat
-                  ? "bg-black text-white shadow-lg"
-                  : "bg-[#F3F3F3] text-[#666] hover:bg-gray-200"
+                  ? "bg-[#1A1A1A] text-white shadow-md"
+                  : "bg-[#E5E5E5] text-black hover:bg-gray-300"
               }`}
             >
               {cat}
@@ -118,39 +118,22 @@ export default function Products() {
           ))}
         </div>
 
-        {/* Section Title */}
-        <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black font-heading">
+        {/* Section Title - Hidden or smaller on mobile to match screenshot feel */}
+        <div className="mb-10 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-black font-heading">
             {activeCategory}
           </h2>
         </div>
 
-        {/* Product Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+        {/* Product Grid - Vertical list on mobile, grid on desktop */}
+        <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 w-full">
           {currentProducts.map((product, index) => (
             <div 
               key={index}
-              className="bg-[#F8F9FA] rounded-[3rem] p-8 sm:p-10 flex flex-col items-center shadow-none border-none transition-all duration-500 group min-h-[450px] sm:min-h-[500px]"
+              className="bg-white rounded-[1.5rem] sm:rounded-[3rem] p-6 sm:p-10 flex flex-row sm:flex-col items-center shadow-sm sm:shadow-none border border-[#F0F0F0] sm:border-none transition-all duration-500 group min-h-[140px] sm:min-h-[500px]"
             >
-              {/* Text Content */}
-              <div className="text-center mb-6">
-                <h3 className="text-xl sm:text-2xl font-bold text-black mb-3 font-heading tracking-tight leading-tight px-4">
-                  {product.title}
-                </h3>
-                <p className="text-base sm:text-lg text-[#333] mb-8 font-medium">
-                  {product.subtitle}
-                </p>
-                
-                {/* Arrow Button */}
-                <div className="flex justify-center mb-8">
-                  <div className="bg-[#007AFF] px-4 py-2.5 rounded-xl flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-110">
-                    <MoveRight className="h-6 w-6 stroke-[3]" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Product Image Area */}
-              <div className="mt-auto relative w-full aspect-square max-w-[200px] sm:max-w-[260px] mx-auto">
+              {/* Product Image Area - Left on mobile, Top on desktop */}
+              <div className="relative w-24 h-24 sm:w-full sm:aspect-square sm:max-w-[260px] flex-shrink-0">
                 <Image
                   src={product.image}
                   alt={product.title}
@@ -158,11 +141,28 @@ export default function Products() {
                   className="object-contain"
                 />
               </div>
+
+              {/* Text Content - Right on mobile, Center on desktop */}
+              <div className="flex-1 sm:text-center ml-6 sm:ml-0 mt-0 sm:mt-6">
+                <h3 className="text-lg sm:text-2xl font-bold text-black mb-1 sm:mb-3 font-heading tracking-tight leading-tight">
+                  {product.title}
+                </h3>
+                <p className="text-sm sm:text-lg text-[#666] sm:text-[#333] mb-0 sm:mb-8 font-medium">
+                  {product.subtitle}
+                </p>
+                
+                {/* Arrow Button - Desktop only or small version on mobile */}
+                <div className="hidden sm:flex justify-center mt-4">
+                  <div className="bg-[#007AFF] px-4 py-2.5 rounded-xl flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-110">
+                    <MoveRight className="h-6 w-6 stroke-[3]" />
+                  </div>
+                </div>
+              </div>
             </div>
           ))}
 
           {currentProducts.length === 0 && (
-            <div className="col-span-full py-32 flex flex-col items-center justify-center bg-[#F8F9FA] rounded-[3rem]">
+            <div className="col-span-full py-20 flex flex-col items-center justify-center bg-white rounded-[1.5rem] sm:rounded-[3rem] border border-[#F0F0F0]">
               <p className="text-gray-400 font-medium italic text-xl">
                 Coming Soon
               </p>
