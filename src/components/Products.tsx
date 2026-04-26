@@ -133,12 +133,12 @@ export default function Products() {
               className="bg-white rounded-[1.5rem] sm:rounded-[3rem] p-6 sm:p-10 flex flex-row sm:flex-col items-center shadow-sm sm:shadow-none border border-[#F0F0F0] sm:border-none transition-all duration-500 group min-h-[140px] sm:min-h-[500px]"
             >
               {/* Product Image Area - Left on mobile, Top on desktop */}
-              <div className="relative w-24 h-24 sm:w-full sm:aspect-square sm:max-w-[260px] flex-shrink-0">
+              <div className="relative w-24 h-24 sm:w-full sm:h-64 lg:h-80 sm:max-w-[320px] mx-auto flex-shrink-0">
                 <Image
                   src={product.image}
                   alt={product.title}
                   fill
-                  className="object-contain"
+                  className="object-contain transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
 
