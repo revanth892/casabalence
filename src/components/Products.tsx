@@ -138,6 +138,7 @@ export default function Products() {
                   src={product.image}
                   alt={product.title}
                   fill
+                  sizes="(max-width: 768px) 100px, (max-width: 1200px) 260px, 320px"
                   className="object-contain transition-transform duration-500 group-hover:scale-110"
                 />
               </div>

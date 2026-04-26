@@ -71,6 +71,7 @@ export default function Hero() {
               alt={slide.title}
               fill
               priority={index === 0}
+              sizes="100vw"
               className="object-cover object-center"
             />
             {/* Darker overlay for better text legibility */}

@@ -35,6 +35,7 @@ export default function About() {
                 src="/app-mockup.png"
                 alt="Casasense Smart App"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-contain"
               />
             </div>
@@ -68,6 +69,7 @@ export default function About() {
                     src="/camera.png"
                     alt="Security Camera"
                     fill
+                    sizes="80px"
                     className="object-contain"
                   />
                 </div>

@@ -4,13 +4,14 @@ import { ArrowRight } from "lucide-react";
 export default function Solutions() {
   return (
     <section id="solutions" className="min-h-screen flex flex-col justify-center px-6 lg:px-16 w-full mx-auto bg-white py-24">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 h-auto lg:h-[38%]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         {/* Top Left: Wall Panel Card */}
-        <div className="relative group overflow-hidden rounded-[2.5rem] bg-white border border-[#F0F0F0] min-h-[300px] md:min-h-0">
+        <div className="relative group overflow-hidden rounded-[2.5rem] bg-white border border-[#F0F0F0] min-h-[400px]">
           <Image
             src="/hero2.png"
             alt="Smart Wall Panel"
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-500" />
@@ -25,11 +26,12 @@ export default function Solutions() {
         </div>
 
         {/* Top Right: Architectural Card */}
-        <div className="relative group overflow-hidden rounded-[2.5rem] bg-white border border-[#F0F0F0] min-h-[300px] md:min-h-0">
+        <div className="relative group overflow-hidden rounded-[2.5rem] bg-white border border-[#F0F0F0] min-h-[400px]">
           <Image
             src="/building.png"
             alt="Smart Architecture"
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-500" />
@@ -44,47 +46,50 @@ export default function Solutions() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto lg:h-[45%]">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Office Card */}
-        <div className="bg-[#F8F9FA] rounded-[2.5rem] overflow-hidden flex flex-col group min-h-[350px] md:min-h-0">
+        <div className="bg-[#F8F9FA] rounded-[2.5rem] overflow-hidden flex flex-col group min-h-[450px]">
           <div className="p-8 pb-4 text-center">
             <h3 className="text-2xl font-bold text-black mb-0 font-heading tracking-tight">Office</h3>
           </div>
-          <div className="flex-1 relative mt-2">
+          <div className="flex-1 relative mt-2 w-full h-full min-h-[250px]">
             <Image
               src="/office.png"
               alt="Office Solution"
               fill
+              sizes="(max-width: 768px) 100vw, 33vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
           </div>
         </div>
 
         {/* Elderly Care Card */}
-        <div className="bg-[#F8F9FA] rounded-[2.5rem] overflow-hidden flex flex-col group min-h-[350px] md:min-h-0">
+        <div className="bg-[#F8F9FA] rounded-[2.5rem] overflow-hidden flex flex-col group min-h-[450px]">
           <div className="p-8 pb-4 text-center">
             <h3 className="text-2xl font-bold text-black mb-0 font-heading tracking-tight">Elderly Care</h3>
           </div>
-          <div className="flex-1 relative mt-2">
+          <div className="flex-1 relative mt-2 w-full h-full min-h-[250px]">
             <Image
               src="/elderly.png"
               alt="Elderly Care"
               fill
+              sizes="(max-width: 768px) 100vw, 33vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
           </div>
         </div>
 
         {/* Gaming Room Card */}
-        <div className="bg-[#F8F9FA] rounded-[2.5rem] overflow-hidden flex flex-col group min-h-[350px] md:min-h-0">
+        <div className="bg-[#F8F9FA] rounded-[2.5rem] overflow-hidden flex flex-col group min-h-[450px]">
           <div className="p-8 pb-4 text-center">
             <h3 className="text-2xl font-bold text-black mb-0 font-heading tracking-tight">Gaming Room</h3>
           </div>
-          <div className="flex-1 relative mt-2">
+          <div className="flex-1 relative mt-2 w-full h-full min-h-[250px]">
             <Image
               src="/gaming.png"
               alt="Gaming Room"
               fill
+              sizes="(max-width: 768px) 100vw, 33vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
           </div>
