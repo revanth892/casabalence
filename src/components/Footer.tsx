@@ -20,68 +20,51 @@ const SocialIcons = {
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-white py-16 px-6 lg:px-16 border-t border-slate-50">
+    <footer className="w-full bg-white py-12 px-6 lg:px-16 border-t border-[#F0F0F0]">
       <div className="max-w-[1400px] mx-auto">
         {/* Top Row: Links & Socials */}
-        <div className="flex flex-col lg:flex-row justify-between items-center mb-12 gap-10">
-          {/* Logo / Brand Info */}
-          <div className="flex flex-col items-center lg:items-start">
-            <h2 className="text-2xl font-black tracking-tighter text-black mb-2 font-heading">
-              CASASENSE
-            </h2>
-            <p className="text-xs text-slate-400 font-bold uppercase tracking-[0.2em]">
-              The Intelligence of Living
-            </p>
+        <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-6">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-sm font-medium text-[#666]">
+            <a href="#" className="hover:text-black transition-colors">Terms of Use</a>
+            <span className="text-gray-300">|</span>
+            <a href="#" className="hover:text-black transition-colors">Privacy</a>
+            <span className="text-gray-300">|</span>
+            <div className="flex items-center gap-2">
+              <span>E-mail:</span>
+              <a href="mailto:Casasense2131@gmail.com" className="hover:text-black transition-colors uppercase">Casasense2131@gmail.com</a>
+            </div>
+            <span className="text-gray-300">|</span>
+            <div className="flex items-center gap-2">
+              <MapPin className="h-4 w-4" />
+              <span>Sainikpuri, Hyderabad</span>
+            </div>
           </div>
 
-          {/* Navigation Links */}
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">
-            <a href="#" className="hover:text-[#007AFF] transition-colors">Terms of Use</a>
-            <a href="#" className="hover:text-[#007AFF] transition-colors">Privacy Policy</a>
-            <a href="#about" className="hover:text-[#007AFF] transition-colors">About</a>
-            <a href="#services" className="hover:text-[#007AFF] transition-colors">Services</a>
-            <a href="#contact" className="hover:text-[#007AFF] transition-colors">Contact</a>
-          </div>
-
-          {/* Social Icons */}
           <div className="flex items-center gap-6">
-            <a href="#" className="text-slate-300 hover:text-[#007AFF] transition-all duration-300 hover:-translate-y-1">
+            <a href="#" className="text-[#666] hover:text-black transition-colors">
               <SocialIcons.Linkedin />
             </a>
-            <a href="#" className="text-slate-300 hover:text-[#007AFF] transition-all duration-300 hover:-translate-y-1">
+            <a href="#" className="text-[#666] hover:text-black transition-colors">
               <SocialIcons.Twitter />
             </a>
-            <a href="#" className="text-slate-300 hover:text-[#007AFF] transition-all duration-300 hover:-translate-y-1">
+            <a href="#" className="text-[#666] hover:text-black transition-colors">
               <SocialIcons.Instagram />
             </a>
-            <a href="#" className="text-slate-300 hover:text-[#007AFF] transition-all duration-300 hover:-translate-y-1">
+            <a href="#" className="text-[#666] hover:text-black transition-colors">
               <SocialIcons.Facebook />
             </a>
-            <a href="#" className="text-slate-300 hover:text-[#007AFF] transition-all duration-300 hover:-translate-y-1">
+            <a href="#" className="text-[#666] hover:text-black transition-colors">
               <SocialIcons.Youtube />
             </a>
           </div>
         </div>
 
         {/* Separator */}
-        <div className="w-full h-px bg-slate-50 mb-12" />
+        <div className="w-full h-px bg-[#F0F0F0] mb-8" />
 
-        {/* Bottom Row: Info & Copyright */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 text-[11px] font-bold text-slate-400 uppercase tracking-widest">
-          <div className="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
-            <div className="flex items-center gap-3">
-              <Mail className="h-4 w-4 text-[#007AFF]" />
-              <a href="mailto:Casasense2131@gmail.com" className="hover:text-black transition-colors">Casasense2131@gmail.com</a>
-            </div>
-            <div className="flex items-center gap-3">
-              <MapPin className="h-4 w-4 text-[#007AFF]" />
-              <span>Sainikpuri, Hyderabad, India</span>
-            </div>
-          </div>
-          
-          <div className="opacity-50 text-center md:text-right">
-            Copyright © 2026 Casasense Inc.
-          </div>
+        {/* Bottom Row: Copyright */}
+        <div className="text-sm text-[#999] font-medium text-center md:text-left">
+          Copyright © 2026 Casasense Inc. All Rights Reserved.
         </div>
       </div>
     </footer>
