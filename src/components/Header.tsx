@@ -86,7 +86,7 @@ export default function Header() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`text-2xl font-semibold text-black transition-all duration-300 hover:text-[#007AFF] transform ${
+                className={`text-xl font-medium text-black transition-all duration-300 hover:text-[#007AFF] transform ${
                   isOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
