@@ -27,15 +27,15 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="h-screen w-full bg-white flex flex-col justify-center px-6 lg:px-16 overflow-hidden">
+    <section className="min-h-screen w-full bg-white flex flex-col justify-center px-6 lg:px-16 py-24 overflow-hidden">
       <div className="max-w-[1400px] mx-auto w-full">
         {/* Heading Line with View All */}
-        <div className="flex justify-between items-end mb-12">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 mb-16">
           <div>
-            <span className="text-[#007AFF] font-bold text-xs tracking-[0.2em] uppercase mb-2 block font-heading">
+            <span className="text-[#007AFF] font-bold text-xs tracking-[0.2em] uppercase mb-3 block font-heading">
               SERVICES
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black font-heading">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-black font-heading">
               Our Professional Expertise
             </h2>
           </div>
@@ -45,11 +45,11 @@ export default function Services() {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div 
               key={index}
-              className="bg-white rounded-[2rem] overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-100 group transition-all duration-500 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] hover:-translate-y-1"
+              className="bg-white rounded-[2.5rem] overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-100 group transition-all duration-500 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] hover:-translate-y-2"
             >
               {/* Image Area */}
               <div className="relative aspect-[4/3] w-full overflow-hidden">
@@ -62,23 +62,23 @@ export default function Services() {
               </div>
 
               {/* Content Area */}
-              <div className="p-8">
-                <div className="mb-4">
-                  <h3 className="text-xl font-bold text-black font-heading">
+              <div className="p-10">
+                <div className="mb-6">
+                  <h3 className="text-2xl font-bold text-black font-heading">
                     {service.title}
                   </h3>
                 </div>
 
-                <div className="flex items-center gap-2 text-gray-400 text-sm mb-6">
+                <div className="flex items-center gap-2 text-gray-400 text-sm mb-8">
                   <MapPin className="h-4 w-4" />
-                  <span>{service.location}</span>
+                  <span className="font-medium">{service.location}</span>
                 </div>
 
-                <div className="flex items-center justify-between pt-4 border-t border-gray-50">
+                <div className="flex items-center justify-between pt-6 border-t border-gray-50">
                   <div className="flex items-center gap-2">
                     <Star className="h-5 w-5 fill-[#FFC107] text-[#FFC107]" />
                     <span className="font-bold text-black">{service.rating}</span>
-                    <span className="text-gray-400">({service.reviews} Reviews)</span>
+                    <span className="text-gray-400 text-sm font-medium">({service.reviews} Reviews)</span>
                   </div>
                 </div>
               </div>

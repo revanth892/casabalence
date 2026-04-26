@@ -99,17 +99,17 @@ export default function Products() {
   const currentProducts = productData[activeCategory as keyof typeof productData] || [];
 
   return (
-    <section id="products" className="min-h-screen w-full bg-white flex flex-col py-32 px-6 lg:px-16">
+    <section id="products" className="min-h-screen w-full bg-white flex flex-col py-24 px-6 lg:px-16">
       <div className="max-w-[1400px] mx-auto w-full">
-        {/* Category Tabs */}
-        <div className="flex flex-wrap gap-3 mb-16">
+        {/* Category Tabs - Horizontal Scroll on Mobile */}
+        <div className="flex overflow-x-auto pb-4 mb-16 no-scrollbar gap-3 lg:flex-wrap">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-8 py-3 rounded-2xl text-sm font-bold transition-all duration-300 whitespace-nowrap ${
                 activeCategory === cat
-                  ? "bg-black text-white shadow-lg"
+                  ? "bg-black text-white shadow-xl scale-105"
                   : "bg-[#F3F3F3] text-[#666] hover:bg-gray-200"
               }`}
             >
@@ -120,51 +120,51 @@ export default function Products() {
 
         {/* Section Title */}
         <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black font-heading">
+          <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-black font-heading uppercase">
             {activeCategory}
           </h2>
         </div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
           {currentProducts.map((product, index) => (
             <div 
               key={index}
-              className="bg-[#F8F9FA] rounded-[3rem] p-10 flex flex-col items-center shadow-none border-none transition-all duration-500 group min-h-[500px]"
+              className="bg-[#F8F9FA] rounded-[3rem] p-10 flex flex-col items-center shadow-sm border border-slate-100 transition-all duration-500 group min-h-[450px] hover:shadow-2xl hover:border-transparent hover:-translate-y-2"
             >
               {/* Text Content */}
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-black mb-3 font-heading tracking-tight leading-tight px-4">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-black text-black mb-4 font-heading tracking-tight leading-tight px-2">
                   {product.title}
                 </h3>
-                <p className="text-lg text-[#333] mb-8 font-medium">
+                <p className="text-base text-slate-500 mb-8 font-bold tracking-wide">
                   {product.subtitle}
                 </p>
                 
                 {/* Arrow Button */}
-                <div className="flex justify-center mb-8">
-                  <div className="bg-[#007AFF] px-4 py-2.5 rounded-xl flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-110">
+                <div className="flex justify-center mb-4">
+                  <div className="bg-black p-4 rounded-2xl flex items-center justify-center text-white transition-all duration-300 group-hover:bg-[#007AFF] group-hover:scale-110 shadow-lg">
                     <MoveRight className="h-6 w-6 stroke-[3]" />
                   </div>
                 </div>
               </div>
 
-              {/* Product Image Area - Shadow and Border removed as requested */}
-              <div className="mt-auto relative w-full aspect-square max-w-[260px] mx-auto">
+              {/* Product Image Area */}
+              <div className="mt-auto relative w-full aspect-square max-w-[240px] mx-auto">
                 <Image
                   src={product.image}
                   alt={product.title}
                   fill
-                  className="object-contain"
+                  className="object-contain transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
             </div>
           ))}
 
           {currentProducts.length === 0 && (
-            <div className="col-span-full py-32 flex flex-col items-center justify-center bg-[#F8F9FA] rounded-[3rem]">
-              <p className="text-gray-400 font-medium italic text-xl">
-                Coming Soon
+            <div className="col-span-full py-40 flex flex-col items-center justify-center bg-[#F8F9FA] rounded-[3.5rem] border-2 border-dashed border-slate-200">
+              <p className="text-slate-300 font-black italic text-2xl tracking-widest uppercase">
+                Hardware Coming Soon
               </p>
             </div>
           )}

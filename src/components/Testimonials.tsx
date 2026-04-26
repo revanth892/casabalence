@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
   {
@@ -76,38 +76,43 @@ export default function Testimonials() {
   const current = testimonials[currentIndex];
 
   return (
-    <section className="h-screen w-full bg-white flex flex-col justify-center px-6 lg:px-24 relative overflow-hidden">
+    <section className="min-h-screen w-full bg-white flex flex-col justify-center px-6 lg:px-24 py-24 relative overflow-hidden">
       <div className="max-w-5xl mx-auto w-full relative">
-        {/* Side Navigation Buttons - Moved Closer & Color Themed */}
+        {/* Quote Icon Background */}
+        <div className="absolute -top-12 -left-4 opacity-5 pointer-events-none">
+          <Quote className="h-32 w-32 fill-black" />
+        </div>
+
+        {/* Side Navigation Buttons */}
         <button 
           onClick={prev}
-          className="absolute -left-16 top-1/2 -translate-y-1/2 w-10 h-10 bg-[#F3F4F6] hover:bg-[#78D1E1] hover:text-white rounded-full flex items-center justify-center text-gray-400 z-20 transition-all duration-300 hidden xl:flex"
+          className="absolute -left-20 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#F3F4F6] hover:bg-black hover:text-white rounded-full flex items-center justify-center text-gray-400 z-20 transition-all duration-300 hidden 2xl:flex shadow-sm"
         >
-          <ChevronLeft className="h-5 w-5" />
+          <ChevronLeft className="h-6 w-6" />
         </button>
         <button 
           onClick={next}
-          className="absolute -right-16 top-1/2 -translate-y-1/2 w-10 h-10 bg-[#F3F4F6] hover:bg-[#78D1E1] hover:text-white rounded-full flex items-center justify-center text-gray-400 z-20 transition-all duration-300 hidden xl:flex"
+          className="absolute -right-20 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#F3F4F6] hover:bg-black hover:text-white rounded-full flex items-center justify-center text-gray-400 z-20 transition-all duration-300 hidden 2xl:flex shadow-sm"
         >
-          <ChevronRight className="h-5 w-5" />
+          <ChevronRight className="h-6 w-6" />
         </button>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
           {/* Large Number */}
-          <div className="lg:col-span-4">
-            <span className="text-[8rem] lg:text-[10rem] font-bold text-[#F3F4F6] leading-none select-none font-heading transition-all duration-700">
+          <div className="lg:col-span-4 flex justify-center lg:justify-start">
+            <span className="text-[6rem] sm:text-[8rem] lg:text-[12rem] font-black text-[#F3F4F6] leading-none select-none font-heading transition-all duration-700 tracking-tighter">
               {current.id}
             </span>
           </div>
 
           {/* Quote Content */}
-          <div className="lg:col-span-8 flex flex-col gap-6">
-            <p className="text-xl lg:text-2xl font-medium text-black leading-snug max-w-lg transition-all duration-500">
+          <div className="lg:col-span-8 flex flex-col gap-8 text-center lg:text-left">
+            <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-black leading-tight transition-all duration-500 font-heading">
               "{current.quote}"
             </p>
 
-            <div className="flex items-center gap-3">
-              <div className="relative w-12 h-12 rounded-full overflow-hidden border border-gray-100 shadow-sm">
+            <div className="flex flex-col lg:flex-row items-center gap-4">
+              <div className="relative w-14 h-14 rounded-full overflow-hidden ring-4 ring-slate-50 shadow-md">
                 <Image
                   src={current.image}
                   alt={current.author}
@@ -116,40 +121,41 @@ export default function Testimonials() {
                 />
               </div>
               <div>
-                <h4 className="text-base font-bold text-black font-heading">{current.author}</h4>
-                <p className="text-[#78D1E1] text-[10px] uppercase tracking-wider font-semibold">{current.role}</p>
+                <h4 className="text-lg font-black text-black font-heading tracking-tight">{current.author}</h4>
+                <p className="text-[#007AFF] text-[10px] uppercase tracking-[0.2em] font-black">{current.role}</p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom Controls - Color Themed */}
-      <div className="absolute bottom-12 left-6 lg:left-32 right-6 lg:right-32 flex justify-between items-center">
+      {/* Bottom Controls */}
+      <div className="mt-20 lg:mt-32 flex flex-col sm:flex-row justify-between items-center gap-8 max-w-5xl mx-auto w-full">
         {/* Progress Display */}
-        <div className="flex items-center gap-8">
-          <div className="flex gap-1.5">
+        <div className="flex items-center gap-8 order-2 sm:order-1">
+          <div className="flex gap-2">
             {testimonials.map((_, i) => (
-              <div 
+              <button 
                 key={i}
-                className={`h-0.5 transition-all duration-500 ${
-                  i === currentIndex ? "w-10 bg-[#78D1E1]" : "w-5 bg-gray-100"
+                onClick={() => setCurrentIndex(i)}
+                className={`h-1.5 transition-all duration-500 rounded-full ${
+                  i === currentIndex ? "w-12 bg-[#007AFF]" : "w-4 bg-gray-100 hover:bg-gray-200"
                 }`}
               />
             ))}
           </div>
-          <span className="text-gray-300 font-medium tracking-widest text-[10px]">
-            {current.id} / 0{testimonials.length}
+          <span className="text-slate-300 font-black tracking-[0.25em] text-[10px] uppercase">
+            {current.id} <span className="mx-2 text-slate-100">/</span> 0{testimonials.length}
           </span>
         </div>
 
-        {/* Small Navigation Arrows */}
-        <div className="flex gap-6">
-          <button onClick={prev} className="text-gray-300 hover:text-[#78D1E1] transition-colors">
-            <ChevronLeft className="h-5 w-5" />
+        {/* Navigation Arrows for Mobile/Tablet */}
+        <div className="flex gap-10 order-1 sm:order-2 lg:hidden">
+          <button onClick={prev} className="p-4 bg-slate-50 rounded-2xl text-slate-400 hover:bg-black hover:text-white transition-all shadow-sm">
+            <ChevronLeft className="h-6 w-6" />
           </button>
-          <button onClick={next} className="text-gray-300 hover:text-[#78D1E1] transition-colors">
-            <ChevronRight className="h-5 w-5" />
+          <button onClick={next} className="p-4 bg-slate-50 rounded-2xl text-slate-400 hover:bg-black hover:text-white transition-all shadow-sm">
+            <ChevronRight className="h-6 w-6" />
           </button>
         </div>
       </div>
